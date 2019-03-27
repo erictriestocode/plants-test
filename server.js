@@ -39,4 +39,4 @@ app.listen(PORT, function(){
 require("./routes/htmlRoutes")(app);
 
 // Exports
-
+module.exports = upload;
