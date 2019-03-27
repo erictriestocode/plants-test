@@ -1,0 +1,25 @@
+{
+  "name": "plants-test",
+  "version": "1.0.0",
+  "description": "plants API test",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erictriestocode/plants-test.git"
+  },
+  "author": "Eric Northrop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erictriestocode/plants-test/issues"
+  },
+  "homepage": "https://github.com/erictriestocode/plants-test#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "multer": "^1.4.1",
+    "nodemon": "^1.18.10",
+    "path": "^0.12.7"
+  }
+}
