@@ -34,6 +34,9 @@ app.listen(PORT, function(){
     console.log("server started on port: " + PORT);
 });
 
-//Router
+// Router
 // require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+
+// Exports
+
