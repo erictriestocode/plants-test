@@ -29,13 +29,15 @@ module.exports = function (app) {
 
     // Image Upload Route
     app.post("/upload", function (req, res) {
-        res.send("Uploading...");
+        // res.send("Uploading...");
         upload(req, res, function (err) {
             if (err) {
                 alert(err)
             } else {
                 console.log(req.file);
-                res.send("test");
+                // $("#imageReturn").append(
+                //     "<img src=" + req.file.filename + " class='responsive-img>"
+                // );
             }
         })
     });
