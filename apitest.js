@@ -1,9 +1,15 @@
+// MAIN LOGIC FILE
+
+// GLOBAL VARIABLES AND REQUIRES
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
+// STEP 1: UPLOAD USER IMAGES
+
+
+
+// STEP 4: Plant ID REQUEST
 function sendPicforId(){
 let request = new XMLHttpRequest();
-
-let idNum;
 
 request.open('POST', 'https://api.plant.id/identify');
 
