@@ -36,7 +36,6 @@ module.exports = function (app) {
                 console.log(err)
             } else {
                 console.log(req.file);
-                document.getElementsByClassName("imageReturn").innerHTML = "<img src='" + req.file + "' class='responsive-img>"
             }
         })
     });
