@@ -1,8 +1,8 @@
-const path = require("path");
+// const path = require("path");
 
-const tinyPng = "Nnaflt7aPkDES60IktCxznAygZaOT2x9";
+// const tinyPngKey = "Nnaflt7aPkDES60IktCxznAygZaOT2x9";
 
-module.exports = function(){
-    let picture = 
+// module.exports = function(){
+//     let picture = 
 
-}
+// }
