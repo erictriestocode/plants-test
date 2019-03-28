@@ -16,7 +16,8 @@ const storage = multer.diskStorage({
 
 // Initialize Upload
 const upload = multer({
-    storage: storage
+    storage: storage,
+    limits:{fileSize: 1000000},
 }).single("imageUpload");
 
 module.exports = function (app) {
@@ -32,12 +33,10 @@ module.exports = function (app) {
         res.send("Uploading...");
         upload(req, res, function (err) {
             if (err) {
-                alert(err)
+                console.log(err)
             } else {
                 console.log(req.file);
-                // $("#imageReturn").append(
-                //     "<img src=" + req.file.filename + " class='responsive-img>"
-                // );
+                document.getElementsByClassName("imageReturn").innerHTML = "<img src='" + req.file + "' class='responsive-img>"
             }
         })
     });
