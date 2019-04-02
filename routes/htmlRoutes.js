@@ -1,6 +1,7 @@
 const path = require("path");
 const multer = require("multer");
-// const upload = require("upload");
+const Datauri = require("datauri");
+const datauri = new Datauri();
 
 // Set Multer as Storage Engine
 const storage = multer.diskStorage({
@@ -13,6 +14,8 @@ const storage = multer.diskStorage({
         cb(null,file.fieldname + "-" + Date.now() + path.extname(file.originalname) );
     }
 });
+
+
 
 // Initialize Upload
 const upload = multer({
@@ -36,6 +39,17 @@ module.exports = function (app) {
                 console.log(err)
             } else {
                 console.log(req.file);
+                datauri.encode(req.file.path, (err, content) => {
+                    if (err) {
+                        throw err;
+                    }
+                
+                    console.log(content); //=> "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+            
+                    //console.log(this.mimetype); //=> "image/png"
+                    //console.log(this.base64); //=> "iVBORw0KGgoAAAANSUhEUgAA..."
+                });
+
             }
         })
     });
