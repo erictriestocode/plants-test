@@ -24,8 +24,8 @@ const storage = multer.diskStorage({
 // Initialize Upload
 const upload = multer({
     storage: storage,
-    limits:{fileSize: 1000000}, // limit to 1 MB
-    
+    // limits:{fileSize: 1000000}, // limit to 1 MB, ignoring temporarily for demonstration purposes
+
 }).single("imageUpload");
 
 module.exports = function (app) {
@@ -50,7 +50,7 @@ module.exports = function (app) {
                     if (err) {
                         throw err;
                     }
-                
+
                     // console.log(content); //=> "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
                     userDataURI = content;
                     // console.log(content);
