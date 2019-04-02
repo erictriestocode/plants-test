@@ -1,7 +1,11 @@
 const path = require("path");
 const multer = require("multer");
 const Datauri = require("datauri");
+const plantId = require("../data/minify");
+const identification = require("../data/identification");
 const datauri = new Datauri();
+
+let userDataURI;
 
 // Set Multer as Storage Engine
 const storage = multer.diskStorage({
@@ -34,7 +38,7 @@ module.exports = function (app) {
 
     // Image Upload Route
     app.post("/upload", function (req, res) {
-        res.send("Uploading...");
+        // res.send("Uploading...");
         upload(req, res, function (err) {
             if (err) {
                 console.log(err)
@@ -45,8 +49,11 @@ module.exports = function (app) {
                         throw err;
                     }
                 
-                    console.log(content); //=> "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
-            
+                    // console.log(content); //=> "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+                    userDataURI = content;
+                    // console.log(content);
+                    plantId(content);
+
                     //console.log(this.mimetype); //=> "image/png"
                     //console.log(this.base64); //=> "iVBORw0KGgoAAAANSUhEUgAA..."
                 });
