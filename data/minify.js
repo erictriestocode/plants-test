@@ -5,11 +5,12 @@ var idConfirmation = require("./identification");
 
 var plantApiKey = "uE6x4WzpWVPnWwBZqpVSneRhhl9y7gwe3hRB8qfUt5wpVpbDzF"; //needs to be replaced by env variable
 var requestId = 126211;
+var plantName;
 
 var request = new XMLHttpRequest();
 var requestTwo = new XMLHttpRequest();
 
-module.exports = function (dataURI) {
+module.exports = function (dataURI, cb) {
 
     request.open('POST', 'https://api.plant.id/identify');
 
@@ -62,6 +63,9 @@ module.exports = function (dataURI) {
                 console.log('Status:', this.status);
                 console.log('Headers:', this.getAllResponseHeaders());
                 console.log('Body:', this.responseText);
+                plantName = JSON.parse(this.responseText)[0].suggestions[0].plant.name;
+                console.log(plantName);
+                cb(plantName);
             }
         };
     
@@ -72,6 +76,7 @@ module.exports = function (dataURI) {
     
         requestTwo.send(JSON.stringify(bodyTwo));
     };
+   
 
 };
 

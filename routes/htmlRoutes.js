@@ -38,8 +38,10 @@ module.exports = function (app) {
 
     // Image Upload Route
     app.post("/upload", function (req, res) {
-        // res.send("Uploading...");
         upload(req, res, function (err) {
+            var callback = function(plantName){
+                res.send(plantName);
+            }
             if (err) {
                 console.log(err)
             } else {
@@ -52,7 +54,7 @@ module.exports = function (app) {
                     // console.log(content); //=> "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
                     userDataURI = content;
                     // console.log(content);
-                    plantId(content);
+                    plantId(content, callback);
 
                     //console.log(this.mimetype); //=> "image/png"
                     //console.log(this.base64); //=> "iVBORw0KGgoAAAANSUhEUgAA..."
