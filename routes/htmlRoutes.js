@@ -40,7 +40,7 @@ module.exports = function (app) {
     app.post("/upload", function (req, res) {
         upload(req, res, function (err) {
             var callback = function(plantName){
-                res.send(plantName);
+                res.send("<h1>" + plantName + "</h1>");
             }
             if (err) {
                 console.log(err)
