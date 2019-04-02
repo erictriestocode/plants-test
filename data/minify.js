@@ -26,7 +26,7 @@ module.exports = function (dataURI, cb) {
             console.log('Body:', this.responseText);
             requestId = parseInt(JSON.parse(this.responseText).id);
             console.log(requestId);
-            setTimeout(function(){isResults(requestId)}, 500);
+            setTimeout(function(){isResults(requestId)}, 2000);
         }
         
     };
